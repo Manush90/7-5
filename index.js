@@ -4,7 +4,7 @@ const url = "https://striveschool-api.herokuapp.com/api/product/";
 
 const row = document.getElementsByClassName("row")[0];
 
-function creaCard(immagine, title, descrizione, price) {
+function creaCard(immagine, title, description, price) {
   // ///////////////////////////////////////
   const col = document.createElement("div");
   row.appendChild(col);
@@ -14,12 +14,16 @@ function creaCard(immagine, title, descrizione, price) {
   const card = document.createElement("div");
   col.appendChild(card);
   card.className = "card";
+  card.classList.add("mb-2");
 
   // ///////////////////////////////////////
   const img = document.createElement("img");
   card.appendChild(img);
   img.className = "card-img-top ";
   img.src = immagine;
+  img.style.height = "30vh";
+  img.style.objectFit = "cover";
+  img.style.width = "auto";
 
   // ///////////////////////////////////////
   const body = document.createElement("div");
@@ -36,7 +40,7 @@ function creaCard(immagine, title, descrizione, price) {
   const p = document.createElement("p");
   body.appendChild(p);
   p.className = "card-text";
-  p.textContent = descrizione;
+  p.textContent = description;
 
   // ///////////////////////////////////////
   const span = document.createElement("span");
@@ -48,14 +52,14 @@ function creaCard(immagine, title, descrizione, price) {
   const btnDettaglio = document.createElement("a");
   body.appendChild(btnDettaglio);
   btnDettaglio.href = "./details.html";
-  btnDettaglio.className = "btn btn-primary me-1";
+  btnDettaglio.className = "btn btn-secondary me-1";
   btnDettaglio.innerText = "Info";
 
   // ///////////////////////////////////////
   const btnModifica = document.createElement("a");
   body.appendChild(btnModifica);
   btnModifica.href = "./backoffice.html";
-  btnModifica.className = "btn btn-success me-1";
+  btnModifica.className = "btn btn-warning me-1";
   btnModifica.innerText = "Edit";
 }
 

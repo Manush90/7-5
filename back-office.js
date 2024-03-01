@@ -11,14 +11,14 @@ form.addEventListener("submit", function (event) {
 
 function postData() {
   const titolo = document.getElementById("Titolo").value;
-  const descrizione = document.getElementById("Descrizione").value;
+  const description = document.getElementById("description").value;
   const brand = document.getElementById("brand").value;
   const imgUrl = document.getElementById("img").value;
   const prezzo = document.getElementById("prezzo").value;
 
   const data = {
     name: titolo,
-    description: descrizione,
+    description: description,
     brand: brand,
     imageUrl: imgUrl,
     price: prezzo,
