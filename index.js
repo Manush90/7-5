@@ -13,7 +13,7 @@ function creaCard(immagine, title, description, price) {
   // ///////////////////////////////////////
   const card = document.createElement("div");
   col.appendChild(card);
-  card.className = "card";
+  card.className = "card shadow-sm";
   card.classList.add("mb-2");
 
   // ///////////////////////////////////////
