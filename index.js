@@ -4,7 +4,7 @@ const url = "https://striveschool-api.herokuapp.com/api/product/";
 
 const row = document.getElementsByClassName("row")[0];
 
-function creaCard(immagine, title, descrizione) {
+function creaCard(immagine, title, descrizione, price) {
   // ///////////////////////////////////////
   const col = document.createElement("div");
   row.appendChild(col);
@@ -39,9 +39,15 @@ function creaCard(immagine, title, descrizione) {
   p.textContent = descrizione;
 
   // ///////////////////////////////////////
+  const span = document.createElement("span");
+  body.appendChild(span);
+  p.className = "card-price";
+  p.textContent = price + "€";
+
+  // ///////////////////////////////////////
   const btnDettaglio = document.createElement("a");
   body.appendChild(btnDettaglio);
-  btnDettaglio.href = "./dettagli.html";
+  btnDettaglio.href = "./details.html";
   btnDettaglio.className = "btn btn-primary me-1";
   btnDettaglio.innerText = "Info";
 
@@ -50,7 +56,7 @@ function creaCard(immagine, title, descrizione) {
   body.appendChild(btnModifica);
   btnModifica.href = "./backoffice.html";
   btnModifica.className = "btn btn-success me-1";
-  btnModifica.innerText = "Modifica";
+  btnModifica.innerText = "Edit";
 }
 
 fetch(url, {
@@ -83,7 +89,7 @@ fetch(url, {
   })
   .then((newAppointment) => {
     newAppointment.forEach((oggetto) => {
-      creaCard(oggetto.imageUrl, oggetto.name, oggetto.description);
+      creaCard(oggetto.imageUrl, oggetto.name, oggetto.description, oggetto.price);
     });
   })
   .catch((err) => console.log(err));
